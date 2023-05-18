@@ -13,7 +13,7 @@ int main()
     char local_3d;
     char local_3c;
     char local_3b;
-    int local_3a; //undefined local_3a;
+    char local_3a; //undefined local_3a;
     char local_39 [24];
     char local_21 [9];
     unsigned int local_18;
