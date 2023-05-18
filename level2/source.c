@@ -6,76 +6,76 @@
 
 int main()
 {
-    unsigned int uVar1;
-    size_t sVar2;
-    int iVar3;
-    bool bVar4;
-    char local_3d;
-    char local_3c;
-    char local_3b;
-    char local_3a; //undefined local_3a;
-    char local_39 [24];
-    char local_21 [9];
-    unsigned int local_18;
-    int local_14;
-    int local_10;
-    int local_c; //undefined4 local_c;
+    unsigned int user_index;
+    size_t tmp_size;
+    int tmp_int;
+    bool must_break;
+    char pseudostring1;
+    char pseudostring2;
+    char pseudostring3;
+    char pseudostring4; //undefined pseudostring4;
+    char user_string [24];
+    char compared_string [9];
+    unsigned int read_index_user;
+    int write_index_compared;
+    int nb_scanned_stuff;
+    char idk_but_0; //undefined4 idk_but_0;
 
-    local_c = 0;
+    idk_but_0 = 0;
 
     printf("Enter key batard: ");
-    local_10 = scanf("%s", local_39);
-    if (local_10 != 1)
+    nb_scanned_stuff = scanf("%s", user_string);
+    if (nb_scanned_stuff != 1)
     {
         printf("No 1\n");
         exit(1);
     }
-    if (local_39[1] != '0')
+    if (user_string[1] != '0')
     {
         printf("No 2\n");
         exit(1);
     }
-    if (local_39[0] != '0')
+    if (user_string[0] != '0')
     {
         printf("No 3\n");
         exit(1);
     }
 
     fflush(stdin);
-    memset(local_21, 0, 9);
-    local_21[0] = 'd';
-    local_3a = 0;
-    local_18 = 2;
-    local_14 = 1;
+    memset(compared_string, 0, 9);
+    compared_string[0] = 'd';
+    pseudostring4 = 0;
+    read_index_user = 2;
+    write_index_compared = 1;
     while(true)
     {
-        sVar2 = strlen(local_21);
-        uVar1 = local_18;
-        bVar4 = false;
-        if (sVar2 < 8)
+        tmp_size = strlen(compared_string);
+        user_index = read_index_user;
+        must_break = false;
+        if (tmp_size < 8)
         {
-            sVar2 = strlen(local_39);
-            bVar4 = uVar1 < sVar2;
+            tmp_size = strlen(user_string);
+            must_break = user_index < tmp_size;
         }
-        printf("uVar1: %d, sVar2: %d\n", uVar1, sVar2);
-        printf("strlen(local_39): %d\n", strlen(local_39));
-        if (!bVar4) {
+        printf("user_index: %d, tmp_size: %d\n", user_index, tmp_size);
+        printf("strlen(user_string): %d\n", strlen(user_string));
+        if (!must_break) {
             break;
         }
-        local_3d = local_39[local_18];
-        local_3c = local_39[local_18 + 1];
-        local_3b = local_39[local_18 + 2];
-        printf("local3d %s\n", &local_3d);
-        iVar3 = atoi(&local_3d);
-        local_21[local_14] = (char)iVar3;
-        printf("local21 : %s | ivar3: %d\n", local_21, iVar3);
-        local_18 = local_18 + 3;
-        local_14 = local_14 + 1;
+        pseudostring1 = user_string[read_index_user];
+        pseudostring2 = user_string[read_index_user + 1];
+        pseudostring3 = user_string[read_index_user + 2];
+        printf("local3d %s\n", &pseudostring1);
+        tmp_int = atoi(&pseudostring1);
+        compared_string[write_index_compared] = (char)tmp_int;
+        printf("local21 : %s | tmp_int: %d\n", compared_string, tmp_int);
+        read_index_user = read_index_user + 3;
+        write_index_compared = write_index_compared + 1;
     }
-    local_21[local_14] = '\0';
-    printf("key: %s\n", local_21);
-    iVar3 = strcmp(local_21, "delabere");
-    if (iVar3 == 0)
+    compared_string[write_index_compared] = '\0';
+    printf("key: %s\n", compared_string);
+    tmp_int = strcmp(compared_string, "delabere");
+    if (tmp_int == 0)
     {
         printf("Ok !\n");
         exit(0);
